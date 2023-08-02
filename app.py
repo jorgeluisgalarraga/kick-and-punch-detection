@@ -49,7 +49,7 @@ def predict(image):
     # st.write(f'**{(max_class).capitalize()}** with a probability of {max_prob: .3f}')
     return max_class, max_prob
 
-set_background('./images/istockphoto-1327797025-170667a.jpg')
+set_background('./images/bg.jpg')
 
 
 st.title(":red[Kick and Punch Classifier with YoloV8]")
