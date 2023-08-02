@@ -1,3 +1,5 @@
+You can try our image classifier app [here](https://kick-and-punch-classifier.streamlit.app/)
+
 # Kick and Punch detection Notebook
 This came as a group idea, we started as a class project. However, we couldn't get a good accuracy.
 
