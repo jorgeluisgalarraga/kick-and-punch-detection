@@ -1,10 +1,36 @@
 import streamlit as st
 from PIL import Image
+import base64
 
 from ultralytics import YOLO
 
 # Load the Yolo Model
 model = YOLO('./runs/classify/train7/weights/best.pt')  # load a custom model
+
+def set_background(image_file):
+    """
+    This function sets the background of a Streamlit app to an image specified by the given image file.
+
+    Parameters:
+        image_file (str): The path to the image file to be used as the background.
+
+    Returns:
+        None
+    """
+    with open(image_file, "rb") as f:
+        img_data = f.read()
+    b64_encoded = base64.b64encode(img_data).decode()
+    style = f"""
+        <style>
+        .stApp {{
+            background-image: url(data:image/png;base64,{b64_encoded});
+            background-size: cover;
+            background-transparency: 0.1;
+        }}
+        </style>
+    """
+    st.markdown(style, unsafe_allow_html=True)
+
 
 def predict(image):
     image = Image.open(image)
@@ -23,13 +49,14 @@ def predict(image):
     # st.write(f'**{(max_class).capitalize()}** with a probability of {max_prob: .3f}')
     return max_class, max_prob
 
+set_background('./images/istockphoto-1327797025-170667a.jpg')
 
 
-st.title("Kick and Punch Classifier with YoloV8")
+st.title(":red[Kick and Punch Classifier with YoloV8]")
 
 col1, col2 = st.columns(2)
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader(":red[Choose an image...]", type=["jpg", "jpeg", "png"])
 
 
 if uploaded_file is not None:
@@ -38,9 +65,10 @@ if uploaded_file is not None:
     new_image = image.resize((300, 300))
     with col1:
         st.write("")
-        st.image(new_image, caption=f'This a {(max_class).capitalize()}!', use_column_width=False)
+        st.image(new_image, use_column_width=False)
+        st.write(f':red[This a {(max_class).capitalize()}!]')
     with col2:
         # predict(uploaded_file)
-        st.subheader('Predicted class:')
-        st.write(f'**{(max_class).capitalize()}** with a probability of {max_prob: .3f}')
+        st.subheader(':red[Predicted class:]')
+        st.write(f':red[**{(max_class).capitalize()}** with a probability of {max_prob: .3f}]')
     
