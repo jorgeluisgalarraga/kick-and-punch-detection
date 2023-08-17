@@ -1,4 +1,5 @@
-You can try our image classifier app [here](https://kick-and-punch-classifier.streamlit.app/)
+You can try our image classifier app: 
+https://kick-and-punch-classifier.streamlit.app/
 
 # Kick and Punch detection Notebook
 This came as a group idea, we started as a class project. However, we couldn't get a good accuracy.
@@ -20,7 +21,7 @@ It is important to notice that some of the models doesn't have dropout since we 
 
 ## Removing classes
 
-After running number of experiments, we decided to remove 2 classes, which were **kicknt**, and **punchnt**. These 2 classes were so similar to our **kick**, **punch**, so the training of the models could be confused by the similutedes of the 4 classes. The dataset can be found in [Roboflow Universe](https://universe.roboflow.com/georgebrown/punch-and-kick-image-classification)
+After conducting several experiments, we made the decision to eliminate two classes, namely **kicknt** and **punchnt**, from the dataset. The reason behind this choice was that these two classes closely resembled our existing **kick** and **punch** classes, which could potentially lead to confusion during model training. The dataset's location can be found at [Roboflow Universe](https://universe.roboflow.com/georgebrown/punch-and-kick-image-classification)
 
 In order to run the experiments with the same models, we decided to train the models with similar condtions; however, for these experiments we included a dropout of 0.5. So, with these five models and 2 classes we got the following results:
 
@@ -30,7 +31,7 @@ In order to run the experiments with the same models, we decided to train the mo
 - MobileNETV2 ![MobileNETV2](/images/image-8.png)
 - EfficientNET Model ![EfficientNET Model](/images/image-9.png)
 
-We can notice that the overal performance increase a 30% in average for the 5 models. Meaning that our assumptions about the 4 classes was right.
+It can be observed that, on average, the overall performance of the five models has improved by 30%, confirming the accuracy of our assumptions regarding the four classes.
 
 ## Yolo V8
 
