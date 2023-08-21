@@ -1,4 +1,5 @@
 You can try our image classifier app [here](https://kick-and-punch-classifier.streamlit.app/)
+
 Link to our pages: https://jorgeluisgalarraga.github.io/kick-and-punch-image-classification/
 
 # Kick and Punch detection Notebook
